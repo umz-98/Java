@@ -1,15 +1,14 @@
-<<<<<<< HEAD
-package Java_Snake_Game;
-=======
-package Java;
->>>>>>> 3f408726e90075fa915519b531b46c1e45455216
+//package Java_Snake_Game;
+
+import java.awt.event.KeyEvent;
 
 import javax.swing.JFrame;
 
-public class Game {
-    
+public class Game 
+implements KeyListener{
     private Snake player;
     private Food food;
+    private Graphics graphics;
 
     private JFrame window;
     public static final int width = 30;
@@ -25,4 +24,22 @@ public class Game {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
+    public void keyTyped(KeyEvent e) {    }
+    public void keyPressed(KeyEvent e) {
+        int keyCode = e.getKeyCode();
+
+        if(keyCode == KeyEvent.VK_W){
+            player.up();
+        }
+        else if(keyCode == KeyEvent.VK_S){
+            player.down();
+        }
+        else if(keyCode == KeyEvent.VK_A){
+            player.left();
+        }
+        else {
+            player.right();
+        }
+    }
+    public void keyReleased(KeyEvent e) {  }
 }
