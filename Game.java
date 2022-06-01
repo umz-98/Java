@@ -24,6 +24,33 @@ implements KeyListener{
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
+
+    public boolean check_wall_collision() {
+        if(player.getX() < 0 || player.getX() >= width * dimension 
+            || player.getY() < 0 || player.getY() >= height * dimension) {
+            return true;
+
+        }
+        return false;
+    }
+
+    public boolean check_food_collision() {
+        if(player.getX() == food.getX() * dimension && player.getY() == food.getY() * dimension) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean check_self_collision() {
+        for(int i = 1; i < player.getBody().size(); i++) {
+            if(player.getX() == player.getBody().get(i).x &&
+                   player.getY() == player.getBody().get(i).y) {
+                       return true;
+                   }
+        }
+        return false;
+    }
+
     public void keyTyped(KeyEvent e) {    }
     public void keyPressed(KeyEvent e) {
         int keyCode = e.getKeyCode();

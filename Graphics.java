@@ -2,12 +2,12 @@
 
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
-
+import java.awt.Color;
 import javax.swing.Timer;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
-
+import java.awt.Rectangle;
 public class Graphics 
 extends JPanel 
 implements ActionListener {
@@ -31,16 +31,27 @@ implements ActionListener {
         this.setFocusable(true);
         this.setFocusTraversalKeysEnabled(false);
 
-
     }
     
     public void paintComponent(java.awt.Graphics g) {
         super.paintComponent(g);
 
         Graphics2D g2d = (Graphics2D) g;
-    }
 
+        g2d.setColor(Color.black);
+        g2d.fillRect(0, 0, Game.width, Game.height * Game.dimension);
+        
+        g2d.setColor(Color.red);
+        g2d.fillRect(f.getX() * Game.dimension, f.getY() * Game.dimension , Game.dimension, Game.dimension);
+
+        g2d.setColor(Color.green);
+        for(Rectangle r : s.getBody()) {
+            g2d.fill(r);
+        }
+
+    }
     public void actionPerformed(ActionEvent e) {
+        repaint();
 
     }
 }
