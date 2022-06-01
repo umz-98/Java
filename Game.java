@@ -42,4 +42,28 @@ implements KeyListener{
         }
     }
     public void keyReleased(KeyEvent e) {  }
+
+    public Snake getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Snake player) {
+        this.player = player;
+    }
+
+    public Food getFood() {
+        return food;
+    }
+
+    public void setFood(Food food) {
+        this.food = food;
+    }
+
+    public JFrame getWindow() {
+        return window;
+    }
+
+    public void setWindow(JFrame window) {
+        this.window = window;
+    }
 }
