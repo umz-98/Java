@@ -18,10 +18,22 @@ implements KeyListener{
     public Game() {
         window = new JFrame();
         
+        player = new Snake();
+        food = new Food(player);
+
+        graphics = new Graphics(this);
+        
+        window.add(graphics);
+
         window.setTitle("Snake");
         window.setSize(width * dimension, height * dimension);
         window.setVisible(true);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    }
+
+    public void start() {
+        graphics.state = "RUNNING";
 
     }
 
