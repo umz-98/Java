@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package Java_Snake_Game;
+=======
+package Java;
+>>>>>>> 3f408726e90075fa915519b531b46c1e45455216
 
 import javax.swing.JFrame;
 
