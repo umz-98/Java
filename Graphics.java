@@ -39,7 +39,7 @@ implements ActionListener {
         Graphics2D g2d = (Graphics2D) g;
 
         g2d.setColor(Color.black);
-        g2d.fillRect(0, 0, Game.width, Game.height * Game.dimension);
+        g2d.fillRect(0, 0, Game.width * Game.dimension + 5, Game.height * Game.dimension + 5);
 
         if(state == "START") {
             g2d.setColor(Color.white);
@@ -61,7 +61,7 @@ implements ActionListener {
     }
     public void actionPerformed(ActionEvent e) {
         repaint();
-        
 
+        game.update();
     }
 }

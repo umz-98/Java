@@ -26,7 +26,7 @@ implements KeyListener{
         window.add(graphics);
 
         window.setTitle("Snake");
-        window.setSize(width * dimension, height * dimension);
+        window.setSize(width * dimension + 2, height * dimension + 4);
         window.setVisible(true);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -37,7 +37,22 @@ implements KeyListener{
 
     }
 
-    public boolean check_wall_collision() {
+    public void update() {
+        if(graphics.state == "RUNNING") {
+            if(check_food_collision()) {
+                player.grow();
+                food.random_spawn(player);
+            }
+            else if(check_wall_collision()|| check_self_collision()) {
+                graphics.state = "END";
+            }
+            else {
+                player.move();
+            }
+        }
+    }
+
+    private boolean check_wall_collision() {
         if(player.getX() < 0 || player.getX() >= width * dimension 
             || player.getY() < 0 || player.getY() >= height * dimension) {
             return true;
@@ -46,14 +61,14 @@ implements KeyListener{
         return false;
     }
 
-    public boolean check_food_collision() {
+    private boolean check_food_collision() {
         if(player.getX() == food.getX() * dimension && player.getY() == food.getY() * dimension) {
             return true;
         }
         return false;
     }
 
-    public boolean check_self_collision() {
+    private boolean check_self_collision() {
         for(int i = 1; i < player.getBody().size(); i++) {
             if(player.getX() == player.getBody().get(i).x &&
                    player.getY() == player.getBody().get(i).y) {
@@ -66,19 +81,24 @@ implements KeyListener{
     public void keyTyped(KeyEvent e) {    }
     public void keyPressed(KeyEvent e) {
         int keyCode = e.getKeyCode();
-
-        if(keyCode == KeyEvent.VK_W){
-            player.up();
-        }
-        else if(keyCode == KeyEvent.VK_S){
-            player.down();
-        }
-        else if(keyCode == KeyEvent.VK_A){
-            player.left();
-        }
+        if(graphics.state == "RUNNING") {
+        
+            if(keyCode == KeyEvent.VK_W){
+                player.up();
+            }
+            else if(keyCode == KeyEvent.VK_S){
+                player.down();
+            }
+            else if(keyCode == KeyEvent.VK_A){
+                player.left();
+            }
+            else {
+                player.right();
+            }
+        } 
         else {
-            player.right();
-        }
+            this.start();
+        }   
     }
     public void keyReleased(KeyEvent e) {  }
 
