@@ -1,4 +1,3 @@
-//package Java_Snake_Game;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 
@@ -84,28 +83,28 @@ public class Snake {
     public int getY() {
         return body.get(0).y;
     }    
+
+    public String getMove() {
+        return move;
+    }
     public void up() {
-        if(move != "DOWN") {
-            move = "UP";
-        }
+        move = "UP";
+        
     }
 
     public void down() {
-        if(move != "UP") {
-            move = "DOWN";
-        }
+        move = "DOWN";
+        
     }
 
     public void left() {
-        if(move != "RIGHT") {
-            move = "LEFT";
-        }
+        move = "LEFT";
+        
     }
 
     public void right() {
-        if(move != "LEFT") {
-            move = "RIGHT";
-        }    
+        move = "RIGHT";
+           
     }
 
 }

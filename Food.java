@@ -1,4 +1,3 @@
-//package Java_Snake_Game;
 import java.awt.Rectangle;
 public class Food {
     private int x;
@@ -10,7 +9,7 @@ public class Food {
     public void random_spawn(Snake player) {
 
         boolean onSnake = true;
-        while(!onSnake) {
+        while(onSnake) {
             onSnake = false;
 
             x = (int)(Math.random() * Game.width - 1);

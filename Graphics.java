@@ -1,7 +1,4 @@
-//package Java_Snake_Game;
-
 import java.awt.event.ActionListener;
-import java.awt.event.KeyListener;
 import java.awt.Color;
 import javax.swing.Timer;
 import java.awt.Graphics2D;
@@ -27,7 +24,7 @@ implements ActionListener {
         f = g.getFood();
         
 
-        this.addKeyListener((KeyListener) g);
+        this.addKeyListener(g);
         this.setFocusable(true);
         this.setFocusTraversalKeysEnabled(false);
 

@@ -1,7 +1,5 @@
-//package Java_Snake_Game;
-
 import java.awt.event.KeyEvent;
-
+import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 
 public class Game 
@@ -83,16 +81,16 @@ implements KeyListener{
         int keyCode = e.getKeyCode();
         if(graphics.state == "RUNNING") {
         
-            if(keyCode == KeyEvent.VK_W){
+            if(keyCode == KeyEvent.VK_W && player.getMove() !="DOWN"){
                 player.up();
             }
-            else if(keyCode == KeyEvent.VK_S){
+            if(keyCode == KeyEvent.VK_S && player.getMove() !="UP"){
                 player.down();
             }
-            else if(keyCode == KeyEvent.VK_A){
+            if(keyCode == KeyEvent.VK_A && player.getMove() !="RIGHT"){
                 player.left();
             }
-            else {
+            if(keyCode == KeyEvent.VK_D && player.getMove() !="LEFT"){
                 player.right();
             }
         } 
